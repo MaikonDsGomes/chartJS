@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Implementando chartJS</title>
-
+  <title>Gráfico Jardim Paulista</title>
+  <!-- é um S porque meu minha empresa se chama SMART BIN -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -25,21 +26,27 @@
   h3 {
     text-align: center;
   }
+  select{
+    border-radius: 15px;
+    padding: 5px;
+    font-size: 17px;
+    font-weight: 600;
+  }
 </style>
 
 <body>
-  <h1>Jardim paulisa</h1>
+  <h1>Jardim paulista</h1>
 
 
   <div>
     <select onclick="dias()" id="dia_semana">
-      <option selected disabled value="#">Selecione um dia da ultima semana</option>
+      <option selected disabled value="#">Selecione um dia da última semana</option>
       <option value="segunda">Segunda Feira</option>
       <option value="terca">Terca Feira</option>
       <option value="quarta">Quarta Feira</option>
       <option value="quinta">Quinta Feira</option>
       <option value="sexta">Sexta Feira</option>
-      <option value="sabado">Sabado</option>
+      <option value="sabado">Sábado</option>
       <option value="domingo">Domingo</option>
     </select>
   </div>
@@ -82,20 +89,20 @@
       hora6_cheio = 5;
 
       hora1_medio = 7;
-      hora2_medio = 12;
+      hora2_medio = 1;
       hora3_medio = 8;
-      hora4_medio = 4;
-      hora5_medio = 2;
-      hora6_medio = 5;
+      hora4_medio = 14;
+      hora5_medio = 6;
+      hora6_medio = 4;
 
       grafico.innerHTML = ` <canvas id="myChart"></canvas> <h3>Segunda Feira</h3> `;
     } else if (dia == "terca") {
-      hora1_cheio = 3;
-      hora2_cheio = 6;
-      hora3_cheio = 9;
-      hora4_cheio = 2;
-      hora5_cheio = 1;
-      hora6_cheio = 4;
+      hora1_cheio = 6;
+      hora2_cheio = 4;
+      hora3_cheio = 12;
+      hora4_cheio = 1;
+      hora5_cheio = 5;
+      hora6_cheio = 5;
 
       hora1_medio = 3;
       hora2_medio = 6;
@@ -113,21 +120,21 @@
       hora5_cheio = 2;
       hora6_cheio = 6;
 
-      hora1_medio = 9;
+      hora1_medio = 4;
       hora2_medio = 5;
-      hora3_medio = 8;
-      hora4_medio = 3;
-      hora5_medio = 2;
-      hora6_medio = 6;
+      hora3_medio = 9;
+      hora4_medio = 5;
+      hora5_medio = 7;
+      hora6_medio = 7;
 
       grafico.innerHTML = `<canvas id="myChart"></canvas> <h3>Quarta Feira</h3>`;
     } else if (dia == "quinta") {
-      hora1_cheio = 5;
-      hora2_cheio = 7;
-      hora3_cheio = 10;
-      hora4_cheio = 4;
-      hora5_cheio = 1;
-      hora6_cheio = 3;
+      hora1_cheio = 9;
+      hora2_cheio = 10;
+      hora3_cheio = 11;
+      hora4_cheio = 7;
+      hora5_cheio = 9;
+      hora6_cheio = 4;
 
       hora1_medio = 5;
       hora2_medio = 7;
@@ -137,28 +144,28 @@
       hora6_medio = 3;
       grafico.innerHTML = `<canvas id="myChart"></canvas> <h3>Quinta Feira</h3>`;
     } else if (dia == "sexta") {
-      hora1_cheio = 8;
-      hora2_cheio = 10;
-      hora3_cheio = 6;
-      hora4_cheio = 3;
-      hora5_cheio = 2;
+      hora1_cheio = 1;
+      hora2_cheio = 12;
+      hora3_cheio = 4;
+      hora4_cheio = 5;
+      hora5_cheio = 7;
       hora6_cheio = 4;
 
-      hora1_medio = 8;
-      hora2_medio = 10;
-      hora3_medio = 6;
-      hora4_medio = 3;
-      hora5_medio = 2;
-      hora6_medio = 4;
+      hora1_medio = 7;
+      hora2_medio = 8;
+      hora3_medio = 4;
+      hora4_medio = 4;
+      hora5_medio = 6;
+      hora6_medio = 2;
 
       grafico.innerHTML = `<canvas id="myChart"></canvas> <h3>Sexta Feira</h3>`;
     } else if (dia == "sabado") {
       hora1_cheio = 6;
       hora2_cheio = 9;
-      hora3_cheio = 7;
-      hora4_cheio = 5;
+      hora3_cheio = 10;
+      hora4_cheio = 9;
       hora5_cheio = 2;
-      hora6_cheio = 3;
+      hora6_cheio = 5;
 
       hora1_medio = 6;
       hora2_medio = 9;
@@ -169,12 +176,12 @@
 
       grafico.innerHTML = `<canvas id="myChart"></canvas> <h3>Sábado Feira</h3>`;
     } else if (dia == "domingo") {
-      hora1_cheio = 4;
-      hora2_cheio = 8;
-      hora3_cheio = 5;
-      hora4_cheio = 3;
+      hora1_cheio = 5;
+      hora2_cheio = 9;
+      hora3_cheio = 10;
+      hora4_cheio = 13;
       hora5_cheio = 1;
-      hora6_cheio = 2;
+      hora6_cheio = 6;
 
       hora1_medio = 4;
       hora2_medio = 8;
