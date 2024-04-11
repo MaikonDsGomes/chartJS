@@ -5,221 +5,92 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gráfico Jardim Paulista</title>
-  <!-- é um S porque meu minha empresa se chama SMART BIN -->
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <style>
-  div {
-    height: 50%;
-    width: 75%;
-    margin: 0 auto;
-  }
 
-  h1 {
-    text-align: center;
-    font-family: monospace;
-    font-size: 45px;
-  }
+.filhos{
+  width: 25%;
+}
+.pai{
+  display: flex;
+}
 
-  h3 {
-    text-align: center;
-  }
-  select{
-    border-radius: 15px;
-    padding: 5px;
-    font-size: 17px;
-    font-weight: 600;
-  }
 </style>
 
 <body>
-  <h1>Jardim paulista</h1>
 
-
-  <div>
-    <select onclick="dias()" id="dia_semana">
-      <option selected disabled value="#">Selecione um dia da última semana</option>
-      <option value="segunda">Segunda Feira</option>
-      <option value="terca">Terca Feira</option>
-      <option value="quarta">Quarta Feira</option>
-      <option value="quinta">Quinta Feira</option>
-      <option value="sexta">Sexta Feira</option>
-      <option value="sabado">Sábado</option>
-      <option value="domingo">Domingo</option>
-    </select>
+  <div class="pai">
+    <div class="filhos">
+      <canvas id="myChart"></canvas>
+    </div>
+    <div class="filhos">
+      <canvas id="myChart2"></canvas>
+    </div>
   </div>
-  <div id="grafico">
-
-
-  </div>
-
-
+  
 
 </body>
 
 </html>
 
 <script>
+  const ctx = document.getElementById('myChart');
 
-  function dias() {
-
-    var dia = dia_semana.value;
-    var hora1_cheio = 0;
-    var hora2_cheio = 0;
-    var hora3_cheio = 0;
-    var hora4_cheio = 0;
-    var hora5_cheio = 0;
-    var hora6_cheio = 0;
-
-    var hora1_medio = 0;
-    var hora2_medio = 0;
-    var hora3_medio = 0;
-    var hora4_medio = 0;
-    var hora5_medio = 0;
-    var hora6_medio = 0;
-
-    if (dia == "segunda") {
-      hora1_cheio = 7;
-      hora2_cheio = 12;
-      hora3_cheio = 8;
-      hora4_cheio = 4;
-      hora5_cheio = 2;
-      hora6_cheio = 5;
-
-      hora1_medio = 7;
-      hora2_medio = 1;
-      hora3_medio = 8;
-      hora4_medio = 14;
-      hora5_medio = 6;
-      hora6_medio = 4;
-
-      grafico.innerHTML = ` <canvas id="myChart"></canvas> <h3>Segunda Feira</h3> `;
-    } else if (dia == "terca") {
-      hora1_cheio = 6;
-      hora2_cheio = 4;
-      hora3_cheio = 12;
-      hora4_cheio = 1;
-      hora5_cheio = 5;
-      hora6_cheio = 5;
-
-      hora1_medio = 3;
-      hora2_medio = 6;
-      hora3_medio = 9;
-      hora4_medio = 2;
-      hora5_medio = 1;
-      hora6_medio = 4;
-
-      grafico.innerHTML = `<canvas id="myChart"></canvas> <h3>Terça Feira</h3>`;
-    } else if (dia == "quarta") {
-      hora1_cheio = 9;
-      hora2_cheio = 5;
-      hora3_cheio = 8;
-      hora4_cheio = 3;
-      hora5_cheio = 2;
-      hora6_cheio = 6;
-
-      hora1_medio = 4;
-      hora2_medio = 5;
-      hora3_medio = 9;
-      hora4_medio = 5;
-      hora5_medio = 7;
-      hora6_medio = 7;
-
-      grafico.innerHTML = `<canvas id="myChart"></canvas> <h3>Quarta Feira</h3>`;
-    } else if (dia == "quinta") {
-      hora1_cheio = 9;
-      hora2_cheio = 10;
-      hora3_cheio = 11;
-      hora4_cheio = 7;
-      hora5_cheio = 9;
-      hora6_cheio = 4;
-
-      hora1_medio = 5;
-      hora2_medio = 7;
-      hora3_medio = 10;
-      hora4_medio = 4;
-      hora5_medio = 1;
-      hora6_medio = 3;
-      grafico.innerHTML = `<canvas id="myChart"></canvas> <h3>Quinta Feira</h3>`;
-    } else if (dia == "sexta") {
-      hora1_cheio = 1;
-      hora2_cheio = 12;
-      hora3_cheio = 4;
-      hora4_cheio = 5;
-      hora5_cheio = 7;
-      hora6_cheio = 4;
-
-      hora1_medio = 7;
-      hora2_medio = 8;
-      hora3_medio = 4;
-      hora4_medio = 4;
-      hora5_medio = 6;
-      hora6_medio = 2;
-
-      grafico.innerHTML = `<canvas id="myChart"></canvas> <h3>Sexta Feira</h3>`;
-    } else if (dia == "sabado") {
-      hora1_cheio = 6;
-      hora2_cheio = 9;
-      hora3_cheio = 10;
-      hora4_cheio = 9;
-      hora5_cheio = 2;
-      hora6_cheio = 5;
-
-      hora1_medio = 6;
-      hora2_medio = 9;
-      hora3_medio = 7;
-      hora4_medio = 5;
-      hora5_medio = 2;
-      hora6_medio = 3;
-
-      grafico.innerHTML = `<canvas id="myChart"></canvas> <h3>Sábado Feira</h3>`;
-    } else if (dia == "domingo") {
-      hora1_cheio = 5;
-      hora2_cheio = 9;
-      hora3_cheio = 10;
-      hora4_cheio = 13;
-      hora5_cheio = 1;
-      hora6_cheio = 6;
-
-      hora1_medio = 4;
-      hora2_medio = 8;
-      hora3_medio = 5;
-      hora4_medio = 3;
-      hora5_medio = 1;
-      hora6_medio = 2;
-
-      grafico.innerHTML = `<canvas id="myChart"></canvas> <h3>Domingo Feira</h3>`;
-    }
-
-    const ctx = document.getElementById('myChart');
-
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Jardim Paulista - 6:00 até 8:00', 'Jardim Paulista - 9:00 até 11:00', 'Jardim Paulista - 12:00 até 13:00', 'Jardim Paulista - 14:00 até 16:00', 'Jardim Paulista - 17:00 até 19:00', 'Jardim Paulista - 20:00 até 00:00'],
-        datasets: [{
-          label: 'Lixeira no nível CHEIO',
-          data: [hora1_cheio, hora2_cheio, hora3_cheio, hora4_cheio, hora5_cheio, hora6_cheio],
-          borderWidth: 1,
-          backgroundColor: 'red'
-        }, {
-          label: 'Lixeira no nível MÉDIO',
-          data: [hora1_medio, hora2_medio, hora3_medio, hora4_medio, hora5_medio, hora6_medio],
-          borderWidth: 1,
-          backgroundColor: 'yellow'
-        }
-        ]
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+      datasets: [{
+        label: 'Temperatura',
+        data: [30, 29, 28, 25, 22, 23],
+        borderWidth: 1,
+        backgroundColor: '#ff6384' 
       },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
+    {
+      label: 'Umidade',
+        data: [80, 82, 80, 85, 80, 83],
+        borderWidth: 1,
+        backgroundColor: '#36a2eb' 
+    }],
+      
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
         }
       }
-    });
+    }
+  },);
 
+  const ctx2 = document.getElementById('myChart2');
+
+new Chart(ctx2, {
+  type: 'bar',
+  data: {
+    labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+    datasets: [{
+      label: 'Temperatura média',
+      data: [22, 24, 27, 23, 20, 18],
+      borderWidth: 1,
+      backgroundColor: '#ff6384'
+    },{
+      label: 'Umidade média',
+      data: [90, 89, 93, 87, 88, 82],
+      borderWidth: 1,
+      backgroundColor: '#36a2eb' 
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
   }
+},);
 </script>
+ 
